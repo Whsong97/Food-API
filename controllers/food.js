@@ -3,8 +3,8 @@ const Food = require('../models/food')
 
 router.get('/', async (req, res) => {
     try {
-        const food = await Food.find()
-        res.json(food)
+        const foods = await Food.find()
+        res.json(foods)
     } catch (error) {
         console.log(error)
         res.status(400).json({ 'message': 'error getting resource' })
@@ -13,8 +13,8 @@ router.get('/', async (req, res) => {
 
 router.post('/', async (req, res) => {
     try {
-        const food = await new Food(req.body).save()
-        res.json(food)
+        const foods = await new Food(req.body).save()
+        res.json(foods)
     } catch (error) {
         console.log(error)
         res.status(400).json({ 'message': 'error creating resource' })
